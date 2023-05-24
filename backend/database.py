@@ -16,9 +16,9 @@ Engine = create_engine(
 )
 Base = declarative_base()
 
-class Question(Base):
+class Question_main(Base):
     
-    __tablename__ = 'question'
+    __tablename__ = 'question_main'
     
     id = Column(Integer, primary_key=True)
     genre_id = Column(Integer)
@@ -26,7 +26,7 @@ class Question(Base):
     explanation = Column(Text)
     
     def to_dict(self):
-        question = {
+        question_main = {
             "id":self.id,
             "genre_id":self.genre_id,
             "title":self.title,
@@ -34,9 +34,9 @@ class Question(Base):
         }
         
         if self.explanation:
-            question["explanation"] = self.explanation
+            question_main["explanation"] = self.explanation
             
-        return question
+        return question_main
     
 
 class Exam_sentence(Base):
